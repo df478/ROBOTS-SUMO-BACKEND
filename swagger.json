@@ -1,0 +1,2012 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/tutores": {
+      "get": {
+        "operationId": "TutorController_listar",
+        "summary": "API para obtener el listado de tutores",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Tutor"
+        ]
+      },
+      "post": {
+        "operationId": "TutorController_crear",
+        "summary": "API para crear un nuevo tutor",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite crear un nuevo tutor utilizando los datos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearTutorDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Tutor"
+        ]
+      }
+    },
+    "/tutores/{id}": {
+      "get": {
+        "operationId": "TutorController_obtenerPorId",
+        "summary": "API para obtener un tutor por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del tutor que deseas obtener",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Tutor"
+        ]
+      },
+      "patch": {
+        "operationId": "TutorController_actualizar",
+        "summary": "API para actualizar un tutor",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del tutor que deseas actualizar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite actualizar un tutor existente utilizando los atributos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarTutorDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Tutor"
+        ]
+      }
+    },
+    "/tutores/eliminar/{id}": {
+      "delete": {
+        "operationId": "TutorController_eliminar",
+        "summary": "API para eliminar un tutor por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del tutor que deseas eliminar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Tutor"
+        ]
+      }
+    },
+    "/tutores/soft-delete/{id}": {
+      "patch": {
+        "operationId": "TutorController_softDelete",
+        "summary": "API para eliminar un tutor por su ID (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del tutor que deseas eliminar (soft delete)",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Tutor"
+        ]
+      }
+    },
+    "/tutores/restore/{id}": {
+      "patch": {
+        "operationId": "TutorController_restore",
+        "summary": "API para restaurar un tutor eliminado (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del tutor que deseas restaurar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Tutor"
+        ]
+      }
+    },
+    "/participantes": {
+      "get": {
+        "operationId": "ParticipanteController_listar",
+        "summary": "API para obtener el listado de participantes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Participante"
+        ]
+      },
+      "post": {
+        "operationId": "ParticipanteController_crear",
+        "summary": "API para crear un nuevo participante",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite crear un nuevo participante utilizando los datos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearParticipanteDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Participante"
+        ]
+      }
+    },
+    "/participantes/{id}": {
+      "get": {
+        "operationId": "ParticipanteController_obtenerPorId",
+        "summary": "API para obtener un participante por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del participante que deseas obtener",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Participante"
+        ]
+      },
+      "patch": {
+        "operationId": "ParticipanteController_actualizar",
+        "summary": "API para actualizar un participante",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del participante que deseas modificar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite actualizar un participante existente utilizando los atributos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarParticipanteDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Participante"
+        ]
+      }
+    },
+    "/participantes/eliminar/{id}": {
+      "delete": {
+        "operationId": "ParticipanteController_eliminar",
+        "summary": "API para eliminar un participante por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del participante que deseas eliminar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Participante"
+        ]
+      }
+    },
+    "/participantes/soft-delete/{id}": {
+      "patch": {
+        "operationId": "ParticipanteController_softDelete",
+        "summary": "API para eliminar un participante por su ID (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del participante que deseas eliminar (soft delete)",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Participante"
+        ]
+      }
+    },
+    "/participantes/restore/{id}": {
+      "patch": {
+        "operationId": "ParticipanteController_restore",
+        "summary": "API para restaurar un participante eliminado (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del participante que deseas restaurar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Participante"
+        ]
+      }
+    },
+    "/equipos": {
+      "get": {
+        "operationId": "EquipoController_listar",
+        "summary": "API para obtener el listado de equipos",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Equipo"
+        ]
+      },
+      "post": {
+        "operationId": "EquipoController_crear",
+        "summary": "API para crear un nuevo equipo",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite crear un nuevo equipo utilizando los datos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearEquipoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Equipo"
+        ]
+      }
+    },
+    "/equipos/details": {
+      "get": {
+        "operationId": "EquipoController_listarDetalleEquipos",
+        "summary": "Obtener detalle de equipos con participantes y tutores",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EquipoDetailDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Equipo"
+        ]
+      }
+    },
+    "/equipos/{id}": {
+      "get": {
+        "operationId": "EquipoController_obtenerPorId",
+        "summary": "API para obtener un equipo por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipo que deseas obtener",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Equipo"
+        ]
+      },
+      "patch": {
+        "operationId": "EquipoController_actualizar",
+        "summary": "API para actualizar un equipo",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipo que deseas modificar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite actualizar un equipo existente utilizando los atributos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarEquipoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Equipo"
+        ]
+      }
+    },
+    "/equipos/eliminar/{id}": {
+      "delete": {
+        "operationId": "EquipoController_eliminar",
+        "summary": "API para eliminar un equipo por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipo que deseas eliminar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Equipo"
+        ]
+      }
+    },
+    "/equipos/soft-delete/{id}": {
+      "patch": {
+        "operationId": "EquipoController_softDelete",
+        "summary": "API para eliminar un equipo por su ID (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipo que deseas eliminar (soft delete)",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Equipo"
+        ]
+      }
+    },
+    "/equipos/restore/{id}": {
+      "patch": {
+        "operationId": "EquipoController_restore",
+        "summary": "API para restaurar un equipo eliminado (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipo que deseas restaurar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Equipo"
+        ]
+      }
+    },
+    "/equiposParticipantes": {
+      "get": {
+        "operationId": "EquipoParticipanteController_listar",
+        "summary": "API para obtener el listado de equiposParticipantes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "EquipoParticipante"
+        ]
+      },
+      "post": {
+        "operationId": "EquipoParticipanteController_crear",
+        "summary": "API para crear un nuevo equipoParticipante",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite crear un nuevo equipoParticipante utilizando los datos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearEquipoParticipanteDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "EquipoParticipante"
+        ]
+      }
+    },
+    "/equiposParticipantes/{id}": {
+      "get": {
+        "operationId": "EquipoParticipanteController_obtenerPorId",
+        "summary": "API para obtener un equipoParticipante por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipoParticipante que deseas obtener",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "EquipoParticipante"
+        ]
+      },
+      "patch": {
+        "operationId": "EquipoParticipanteController_actualizar",
+        "summary": "API para actualizar un equipoParticipante",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipoParticipante que deseas modificar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite actualizar un equipoParticipante existente utilizando los atributos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarEquipoParticipanteDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "EquipoParticipante"
+        ]
+      }
+    },
+    "/equiposParticipantes/eliminar/{id}": {
+      "delete": {
+        "operationId": "EquipoParticipanteController_eliminar",
+        "summary": "API para eliminar un equipoParticipante por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipoParticipante que deseas eliminar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "EquipoParticipante"
+        ]
+      }
+    },
+    "/equiposParticipantes/soft-delete/{id}": {
+      "patch": {
+        "operationId": "EquipoParticipanteController_softDelete",
+        "summary": "API para eliminar un equipoParticipante por su ID (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipoParticipante que deseas eliminar (soft delete)",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "EquipoParticipante"
+        ]
+      }
+    },
+    "/equiposParticipantes/restore/{id}": {
+      "patch": {
+        "operationId": "EquipoParticipanteController_restore",
+        "summary": "API para restaurar un equipoParticipante eliminado (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del equipoParticipante que deseas restaurar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "EquipoParticipante"
+        ]
+      }
+    },
+    "/pistas": {
+      "get": {
+        "operationId": "PistaController_listar",
+        "summary": "API para obtener el listado de pistas",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pista"
+        ]
+      },
+      "post": {
+        "operationId": "PistaController_crear",
+        "summary": "API para crear un nuevo pista",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite crear un nuevo pista utilizando los datos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearPistaDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pista"
+        ]
+      }
+    },
+    "/pistas/{id}": {
+      "get": {
+        "operationId": "PistaController_obtenerPorId",
+        "summary": "API para obtener un pista por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del pista que deseas obtener",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pista"
+        ]
+      },
+      "patch": {
+        "operationId": "PistaController_actualizar",
+        "summary": "API para actualizar un pista",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del pista que deseas modificar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite actualizar un pista existente utilizando los atributos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarPistaDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pista"
+        ]
+      }
+    },
+    "/pistas/eliminar/{id}": {
+      "delete": {
+        "operationId": "PistaController_eliminar",
+        "summary": "API para eliminar un pista por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del pista que deseas eliminar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pista"
+        ]
+      }
+    },
+    "/pistas/soft-delete/{id}": {
+      "patch": {
+        "operationId": "PistaController_softDelete",
+        "summary": "API para eliminar un pista por su ID (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del pista que deseas eliminar (soft delete)",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pista"
+        ]
+      }
+    },
+    "/pistas/restore/{id}": {
+      "patch": {
+        "operationId": "PistaController_restore",
+        "summary": "API para restaurar un pista eliminado (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del pista que deseas restaurar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pista"
+        ]
+      }
+    },
+    "/puntajes": {
+      "get": {
+        "operationId": "PuntajeController_listar",
+        "summary": "API para obtener el listado de puntajes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Puntaje"
+        ]
+      },
+      "post": {
+        "operationId": "PuntajeController_crear",
+        "summary": "API para crear un nuevo puntaje",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite crear un nuevo puntaje utilizando los datos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearPuntajeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Puntaje"
+        ]
+      }
+    },
+    "/puntajes/details": {
+      "get": {
+        "operationId": "PuntajeController_listarPuntajesParticipantes",
+        "summary": "API para obtener el listado de puntajes y participantes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Lista de puntajes por participante",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScoreDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Puntaje"
+        ]
+      }
+    },
+    "/puntajes/{id}": {
+      "get": {
+        "operationId": "PuntajeController_obtenerPorId",
+        "summary": "API para obtener un puntaje por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del puntaje que deseas obtener",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Puntaje"
+        ]
+      },
+      "patch": {
+        "operationId": "PuntajeController_actualizar",
+        "summary": "API para actualizar un puntaje",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del puntaje que deseas modificar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite actualizar un puntaje existente utilizando los atributos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarPuntajeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Puntaje"
+        ]
+      }
+    },
+    "/puntajes/eliminar/{id}": {
+      "delete": {
+        "operationId": "PuntajeController_eliminar",
+        "summary": "API para eliminar un puntaje por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del puntaje que deseas eliminar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Puntaje"
+        ]
+      }
+    },
+    "/puntajes/soft-delete/{id}": {
+      "patch": {
+        "operationId": "PuntajeController_softDelete",
+        "summary": "API para eliminar un puntaje por su ID (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del puntaje que deseas eliminar (soft delete)",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Puntaje"
+        ]
+      }
+    },
+    "/puntajes/restore/{id}": {
+      "patch": {
+        "operationId": "PuntajeController_restore",
+        "summary": "API para restaurar un puntaje eliminado (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del puntaje que deseas restaurar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Puntaje"
+        ]
+      }
+    },
+    "/rondas": {
+      "get": {
+        "operationId": "RondaController_listar",
+        "summary": "API para obtener el listado de rondas",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Ronda"
+        ]
+      },
+      "post": {
+        "operationId": "RondaController_crear",
+        "summary": "API para crear un nuevo ronda",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite crear un nuevo ronda utilizando los datos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearRondaDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Ronda"
+        ]
+      }
+    },
+    "/rondas/{id}": {
+      "get": {
+        "operationId": "RondaController_obtenerPorId",
+        "summary": "API para obtener un ronda por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del ronda que deseas obtener",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Ronda"
+        ]
+      },
+      "patch": {
+        "operationId": "RondaController_actualizar",
+        "summary": "API para actualizar un ronda",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del ronda que deseas modificar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite actualizar un ronda existente utilizando los atributos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarRondaDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Ronda"
+        ]
+      }
+    },
+    "/rondas/eliminar/{id}": {
+      "delete": {
+        "operationId": "RondaController_eliminar",
+        "summary": "API para eliminar un ronda por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del ronda que deseas eliminar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Ronda"
+        ]
+      }
+    },
+    "/rondas/soft-delete/{id}": {
+      "patch": {
+        "operationId": "RondaController_softDelete",
+        "summary": "API para eliminar un ronda por su ID (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del ronda que deseas eliminar (soft delete)",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Ronda"
+        ]
+      }
+    },
+    "/rondas/restore/{id}": {
+      "patch": {
+        "operationId": "RondaController_restore",
+        "summary": "API para restaurar un ronda eliminado (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del ronda que deseas restaurar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Ronda"
+        ]
+      }
+    },
+    "/usuarios": {
+      "get": {
+        "operationId": "UsuarioController_listar",
+        "summary": "API para obtener el listado de usuarios",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuario"
+        ]
+      },
+      "post": {
+        "operationId": "UsuarioController_crear",
+        "summary": "API para crear un nuevo usuario",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite crear un nuevo usuario utilizando los datos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearUsuarioDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuario"
+        ]
+      }
+    },
+    "/usuarios/{id}": {
+      "get": {
+        "operationId": "UsuarioController_obtenerPorId",
+        "summary": "API para obtener un usuario por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del usuario que deseas obtener",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuario"
+        ]
+      },
+      "patch": {
+        "operationId": "UsuarioController_actualizar",
+        "summary": "API para actualizar un usuario",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del usuario que deseas actualizar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Esta API permite actualizar un usuario existente utilizando los atributos proporcionados en el cuerpo de la solicitud.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarUsuarioDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuario"
+        ]
+      }
+    },
+    "/usuarios/eliminar/{id}": {
+      "delete": {
+        "operationId": "UsuarioController_eliminar",
+        "summary": "API para eliminar un usuario por su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del usuario que deseas eliminar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuario"
+        ]
+      }
+    },
+    "/usuarios/soft-delete/{id}": {
+      "patch": {
+        "operationId": "UsuarioController_softDelete",
+        "summary": "API para eliminar un usuario por su ID (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del usuario que deseas eliminar (soft delete)",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuario"
+        ]
+      }
+    },
+    "/usuarios/restore/{id}": {
+      "patch": {
+        "operationId": "UsuarioController_restore",
+        "summary": "API para restaurar un usuario eliminado (soft delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID del usuario que deseas restaurar",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuario"
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Backend",
+    "description": "Documentación",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http",
+        "name": "Authorization",
+        "description": "Enter your JWT token in the format: Bearer <token>"
+      }
+    },
+    "schemas": {
+      "CrearTutorDto": {
+        "type": "object",
+        "properties": {
+          "nombreCompleto": {
+            "type": "string",
+            "example": "Arturo Rodrigo Perez Chavez"
+          },
+          "carnetIdentidad": {
+            "type": "string",
+            "example": "8526947"
+          }
+        },
+        "required": [
+          "nombreCompleto",
+          "carnetIdentidad"
+        ]
+      },
+      "ActualizarTutorDto": {
+        "type": "object",
+        "properties": {
+          "nombreCompleto": {
+            "type": "string",
+            "example": "Arturo Rodrigo Perez Chavez"
+          },
+          "carnetIdentidad": {
+            "type": "string",
+            "example": "8526947"
+          }
+        },
+        "required": [
+          "nombreCompleto",
+          "carnetIdentidad"
+        ]
+      },
+      "CrearParticipanteDto": {
+        "type": "object",
+        "properties": {
+          "nombreCompleto": {
+            "type": "string",
+            "example": "Arturo Rodrigo Perez Chavez"
+          },
+          "carnetIdentidad": {
+            "type": "string",
+            "example": "8526947"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "example": "2003-05-23"
+          },
+          "departamento": {
+            "type": "string",
+            "example": "La Paz"
+          },
+          "provincia": {
+            "type": "string",
+            "example": "Murillo"
+          },
+          "municipio": {
+            "type": "string",
+            "example": "Achocalla"
+          }
+        },
+        "required": [
+          "nombreCompleto",
+          "carnetIdentidad",
+          "fechaNacimiento",
+          "departamento",
+          "provincia",
+          "municipio"
+        ]
+      },
+      "ActualizarParticipanteDto": {
+        "type": "object",
+        "properties": {
+          "nombreCompleto": {
+            "type": "string",
+            "example": "Arturo Rodrigo Perez Chavez"
+          },
+          "carnetIdentidad": {
+            "type": "string",
+            "example": "8526947"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "example": "2003-05-23"
+          },
+          "departamento": {
+            "type": "string",
+            "example": "La Paz"
+          },
+          "provincia": {
+            "type": "string",
+            "example": "Murillo"
+          },
+          "municipio": {
+            "type": "string",
+            "example": "Achocalla"
+          }
+        },
+        "required": [
+          "nombreCompleto",
+          "carnetIdentidad",
+          "fechaNacimiento",
+          "departamento",
+          "provincia",
+          "municipio"
+        ]
+      },
+      "EquipoDetailDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1",
+            "description": "ID único del equipo"
+          },
+          "nombreEquipo": {
+            "type": "string",
+            "example": "Los Invencibles",
+            "description": "Nombre del equipo"
+          },
+          "participantes": {
+            "type": "string",
+            "example": "Ana Pérez, Luis Gómez, Carla Díaz",
+            "description": "Nombres de los participantes concatenados"
+          },
+          "tutores": {
+            "type": "string",
+            "example": "Dr. Sánchez, Lic. Ramírez",
+            "description": "Nombres de los tutores concatenados"
+          }
+        },
+        "required": [
+          "id",
+          "nombreEquipo",
+          "participantes",
+          "tutores"
+        ]
+      },
+      "CrearEquipoDto": {
+        "type": "object",
+        "properties": {
+          "nombreEquipo": {
+            "type": "string",
+            "example": "Equipo 1"
+          }
+        },
+        "required": [
+          "nombreEquipo"
+        ]
+      },
+      "ActualizarEquipoDto": {
+        "type": "object",
+        "properties": {
+          "nombreEquipo": {
+            "type": "string",
+            "example": "Equipo 1"
+          }
+        },
+        "required": [
+          "nombreEquipo"
+        ]
+      },
+      "CrearEquipoParticipanteDto": {
+        "type": "object",
+        "properties": {
+          "equipoId": {
+            "type": "number",
+            "description": "ID del equipo (foreign key)",
+            "format": "int64",
+            "example": "1"
+          },
+          "participanteId": {
+            "type": "number",
+            "description": "ID del participante (foreign key)",
+            "format": "int64",
+            "example": "1"
+          }
+        },
+        "required": [
+          "equipoId",
+          "participanteId"
+        ]
+      },
+      "ActualizarEquipoParticipanteDto": {
+        "type": "object",
+        "properties": {
+          "equipo": {
+            "type": "number",
+            "description": "ID del equipo (foreign key)",
+            "format": "int64",
+            "example": "1"
+          },
+          "participante": {
+            "type": "number",
+            "description": "ID del participante (foreign key)",
+            "format": "int64",
+            "example": "1"
+          }
+        },
+        "required": [
+          "equipo",
+          "participante"
+        ]
+      },
+      "CrearPistaDto": {
+        "type": "object",
+        "properties": {
+          "nombrePista": {
+            "type": "string",
+            "example": "Pista 1"
+          }
+        },
+        "required": [
+          "nombrePista"
+        ]
+      },
+      "ActualizarPistaDto": {
+        "type": "object",
+        "properties": {
+          "nombrePista": {
+            "type": "string",
+            "example": "Pista 1"
+          }
+        },
+        "required": [
+          "nombrePista"
+        ]
+      },
+      "ScoreDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1",
+            "description": "ID único del participante"
+          },
+          "participante": {
+            "type": "string",
+            "example": "Arturo Pérez",
+            "description": "Nombre completo del participante"
+          },
+          "puntaje": {
+            "type": "number",
+            "example": 150,
+            "description": "Puntaje acumulado del participante"
+          },
+          "departamento": {
+            "type": "string",
+            "example": "La Paz",
+            "description": "Departamento del participante"
+          },
+          "provincia": {
+            "type": "string",
+            "example": "Murillo",
+            "description": "Provincia del participante"
+          },
+          "municipio": {
+            "type": "string",
+            "example": "Achocalla",
+            "description": "Municipio del participante"
+          }
+        },
+        "required": [
+          "id",
+          "participante",
+          "puntaje",
+          "departamento",
+          "provincia",
+          "municipio"
+        ]
+      },
+      "CrearPuntajeDto": {
+        "type": "object",
+        "properties": {
+          "puntaje": {
+            "type": "number",
+            "example": "50"
+          },
+          "rondaId": {
+            "type": "number",
+            "description": "ID de la ronda (foreign key)",
+            "format": "int64",
+            "example": "1"
+          },
+          "equipoId": {
+            "type": "number",
+            "description": "ID del equipo (foreign key)",
+            "format": "int64",
+            "example": "1"
+          }
+        },
+        "required": [
+          "puntaje",
+          "rondaId",
+          "equipoId"
+        ]
+      },
+      "ActualizarPuntajeDto": {
+        "type": "object",
+        "properties": {
+          "puntaje": {
+            "type": "number",
+            "example": "50"
+          },
+          "ronda": {
+            "type": "number",
+            "description": "ID de la ronda (foreign key)",
+            "format": "int64",
+            "example": "1"
+          },
+          "equipo": {
+            "type": "number",
+            "description": "ID del equipo (foreign key)",
+            "format": "int64",
+            "example": "1"
+          }
+        },
+        "required": [
+          "puntaje",
+          "ronda",
+          "equipo"
+        ]
+      },
+      "CrearRondaDto": {
+        "type": "object",
+        "properties": {
+          "estado": {
+            "type": "string",
+            "example": "pendiente | en_curso | finalizada"
+          },
+          "pistaId": {
+            "type": "number",
+            "description": "ID de la pista (foreign key)",
+            "format": "int64",
+            "example": "1"
+          },
+          "equipoRojoId": {
+            "type": "number",
+            "description": "ID del equipo rojo (foreign key)",
+            "format": "int64",
+            "example": "1"
+          },
+          "equipoAzulId": {
+            "type": "number",
+            "description": "ID del equipo azul (foreign key)",
+            "format": "int64",
+            "example": "1"
+          }
+        },
+        "required": [
+          "estado",
+          "pistaId",
+          "equipoRojoId",
+          "equipoAzulId"
+        ]
+      },
+      "ActualizarRondaDto": {
+        "type": "object",
+        "properties": {
+          "estado": {
+            "type": "string",
+            "example": "pendiente | en_curso | finalizada"
+          },
+          "pista": {
+            "type": "number",
+            "description": "ID de la pista (foreign key)",
+            "format": "int64",
+            "example": "1"
+          },
+          "equipo_rojo": {
+            "type": "number",
+            "description": "ID del equipo rojo (foreign key)",
+            "format": "int64",
+            "example": "1"
+          },
+          "equipo_azul": {
+            "type": "number",
+            "description": "ID del equipo azul (foreign key)",
+            "format": "int64",
+            "example": "1"
+          }
+        },
+        "required": [
+          "estado",
+          "pista",
+          "equipo_rojo",
+          "equipo_azul"
+        ]
+      },
+      "CrearUsuarioDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "user"
+          },
+          "email": {
+            "type": "string",
+            "example": "user@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "P@ssw0rd"
+          },
+          "rol": {
+            "type": "string",
+            "enum": [
+              "admin",
+              "user",
+              "guest"
+            ],
+            "example": "user",
+            "default": "user"
+          }
+        },
+        "required": [
+          "username",
+          "email",
+          "password"
+        ]
+      },
+      "ActualizarUsuarioDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "user123"
+          },
+          "email": {
+            "type": "string",
+            "example": "example@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "P@ssw0rd"
+          },
+          "rol": {
+            "type": "string",
+            "enum": [
+              "admin",
+              "user",
+              "guest"
+            ],
+            "example": "user"
+          }
+        },
+        "required": [
+          "username",
+          "email",
+          "password",
+          "rol"
+        ]
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "user@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "P@ssw0rd"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      }
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ]
+}

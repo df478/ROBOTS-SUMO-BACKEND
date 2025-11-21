@@ -1,0 +1,37 @@
+services:
+  db-postgres:
+    image: postgres:17.2  # Se utiliza PostgreSQL versión 17.2
+    restart: unless-stopped  # Reinicia el contenedor automáticamente en caso de fallo, salvo que se detenga manualmente
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}      # Usuario de PostgreSQL (definido en variable de entorno)
+      POSTGRES_PASSWORD: ${DB_PASSWORD}    # Contraseña de PostgreSQL (definida en variable de entorno)
+      POSTGRES_DB: ${DB_DATABASE}          # Nombre de la base de datos a crear (definido en variable de entorno)
+    ports:
+      - 5432:${DB_PORT}  # Mapea el puerto del contenedor (normalmente 5432, definido en ${DB_PORT}) al puerto 5433 del host
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Volumen para persistir los datos de la base de datos
+      - ./database/scripts/dbcreate.sql:/docker-entrypoint-initdb.d/dbcreate.sql  
+        # Monta el script de inicialización que se ejecutará al iniciar el contenedor para configurar la BD
+
+  backend:
+    build:
+      context: .  # Contexto de construcción: el directorio actual
+      dockerfile: dockerfile.prod  # Dockerfile de producción utilizado para construir la imagen
+    restart: unless-stopped  # Reinicia el contenedor automáticamente en caso de fallo, salvo que se detenga manualmente
+    environment:
+      NODE_ENV: production  # Define el entorno de la aplicación como producción
+      PORT: ${PORT}  # Puerto en el que la aplicación escuchará dentro del contenedor (definido en variable de entorno)
+      # La aplicación se conectará a la base de datos a través del servicio "db-notificaciones"
+      DB_HOST: db-postgres  # Host de la base de datos: se usa el nombre del servicio 'db-notificaciones'
+      DB_USERNAME: ${DB_USERNAME}      # Usuario para la conexión a la BD (mismo valor que en db-notificaciones)
+      DB_PASSWORD: ${DB_PASSWORD}      # Contraseña para la conexión a la BD
+      DB_DATABASE: ${DB_DATABASE}      # Nombre de la base de datos
+      DB_PORT: ${DB_PORT}              # Puerto de la base de datos (definido en variable de entorno)
+    ports:
+      - ${PORT}:${PORT}  # Mapea el puerto definido en ${PORT} del contenedor al mismo puerto en el host
+    depends_on:
+      - db-postgres  # Indica que este servicio depende de que 'db-notificaciones' se inicie primero
+
+# Declaración de volúmenes
+volumes:
+  db_data:  # Volumen utilizado para persistir los datos de PostgreSQL
